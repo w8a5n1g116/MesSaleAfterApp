@@ -1,0 +1,16 @@
+﻿<div class="container-fluid">
+    <form action="~/Home/UserBind" method="post">        
+        <div class="row">
+            <div class="col">
+
+                <div class="form-group">
+                    <label for="email">员工编号:</label>
+                    <input type="text" class="form-control" id="UserNo" placeholder="请输入员工编号" name="UserNo">
+                </div>
+                <input type="hidden" name="OpenID" value="@ViewBag.OpenID" />
+                <button type="submit" class="btn btn-primary">绑定</button>
+
+            </div>
+        </div>
+    </form>
+</div>

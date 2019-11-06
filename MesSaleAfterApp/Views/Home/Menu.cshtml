@@ -1,0 +1,97 @@
+﻿<div class="container-fluid">
+    <div class="jumbotron mt-2">
+        <h1 id="UserDescription">售后服务</h1>
+        <p id="UserName"></p>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <a class="list-group-item list-group-item-action text-center" href="~/Home/Index?IsCustomer=Yes">
+                顾客报修
+            </a>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <a class="list-group-item list-group-item-action text-center" href="~/Home/Dispatch" id="Dispatch">
+                售后服务工作
+            </a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var UserName = '';
+    var UserID = '';
+    var EmployeeNo = '';
+
+    //?UserID=SUR1000003KX
+
+    dd.config({
+        agentId: '264127422',
+        corpId: 'ding2c79175966a6abea35c2f4657eb6378f',
+        timeStamp: '@ViewBag.timeStamp',
+        nonceStr: '@ViewBag.nonceStr',
+        signature: '@ViewBag.signature',
+        jsApiList: [
+            'biz.user.get'
+        ]
+    });
+
+    $(document).ready(function () {
+
+        //test
+        //UserName = 'K002057';
+        //UserID = 'SUR1000003KX';
+        //EmployeeNo = 'wangjunjie';
+        //$("#UserDescription").html('王俊杰');
+        //test
+
+        dd.ready(function () {
+
+
+            // dd.ready参数为回调函数，在环境准备就绪时触发，jsapi的调用需要保证在该回调函数触发后调用，否则无效。
+            dd.runtime.permission.requestAuthCode({
+                corpId: "ding2c79175966a6abea35c2f4657eb6378f",
+                onSuccess: function (result) {
+                    /*{
+                        code: 'hYLK98jkf0m' //string authCode
+                    }*/
+                    //alert('dd.runtime.permission.requestAuthCode success:' + result.code);
+                },
+                onFail: function (err) {
+                    alert('dd.runtime.permission.requestAuthCode error:' + JSON.stringify(err));
+                }
+
+            });
+
+            dd.biz.user.get({
+                corpId: 'ding2c79175966a6abea35c2f4657eb6378f', // 可选参数，如果不传则使用用户当前企业的corpId。
+                onSuccess: function (info) {
+                    $.get('/api/User?userId=' + info.emplId, function (ret) {
+                        var ret = JSON.parse(ret);
+                        if (ret.success == true) {
+                            UserName = ret.data.UserName;
+                            UserID = ret.data.UserId;
+                            EmployeeNo = ret.data.EmployeeNo;
+
+                            var originHref = $('#Dispatch').attr('href');
+                            $('#Dispatch').attr('href', originHref + '?UserID=' + UserID);
+
+                            $('#UserName').html(ret.data.UserDescription);
+                        }
+                        else {
+                            alert(ret.error);
+                        }
+                    })
+
+                    //alert('userGet success: ' + info.emplId);
+                },
+                onFail: function (err) {
+                    alert('userGet fail: ' + JSON.stringify(err));
+                }
+            });
+
+        });
+      
+    });
+</script>

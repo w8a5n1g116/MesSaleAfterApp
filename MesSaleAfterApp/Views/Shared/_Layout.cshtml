@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html lang="zh-cn">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/Content/bootstrap-css")
+    @Styles.Render("~/Content/fileinput-css")
+    @Styles.Render("~/Content/font-awesome-css")
+    <link rel="stylesheet" href="~/Content/datetime-picker/css/bootstrap-datetimepicker.min.css" />
+
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/piexif")
+    @Scripts.Render("~/bundles/sortable")
+    @Scripts.Render("~/bundles/purify")
+    @Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/fileinput")
+    @Scripts.Render("~/bundles/theme")
+    @Scripts.Render("~/bundles/LANG")
+    @Scripts.Render("~/bundles/axios")
+    <script src="//g.alicdn.com/dingding/dingtalk-jsapi/2.6.0/dingtalk.open.js"></script>
+    <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="~/Content/datetime-picker/js/moment.js"></script>
+    <script src="~/Content/datetime-picker/js/bootstrap-datetimepicker.min.js"></script>
+
+</head>
+<body>
+    @RenderBody()
+    <script type="text/JavaScript">
+        
+    </script>
+</body>
+</html>

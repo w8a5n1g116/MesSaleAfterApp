@@ -1,0 +1,282 @@
+﻿<div class="container-fluid">
+    <form action="~/Home/Index" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col bg-dark">
+                <div class="input-group mt-2 mb-2">
+                    <input type="text" class="form-control bg-light" placeholder="输入批号" id="LotSN" />
+                    <div class="input-group-append">
+                        <a class="btn text-white" id="ScanBtn"><i class="fa fa-qrcode"></i></a>
+                        <button type="button" class="btn text-white" id="ScanBtn2">查询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none" id="d1">
+            <div class="col">
+                <div class="form-group">
+                    <label for="ProductName">产品名称:</label>
+                    <input type="text" class="form-control" id="ProductName" placeholder="产品名称" name="ProductName">
+                </div>
+                <div class="form-group">
+                    <label for="ProductID">产品代码:</label>
+                    <input type="text" class="form-control" id="ProductID" placeholder="产品代码" name="ProductID">
+                </div>
+                @*<div class="form-group">
+                    <label for="LotName">批号:</label>
+                    <input type="text" class="form-control" id="LotName" placeholder="批号" name="LotName">
+                </div>*@
+                <div class="form-group">
+                    <label for="MoID">订单号:</label>
+                    <input type="text" class="form-control" id="MoID" placeholder="订单号" name="MoID">
+                </div>
+                <div class="form-group">
+                    <label for="email">客户名称:</label>
+                    <input type="text" class="form-control" id="CustomerName" placeholder="客户名称" name="CustomerName">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">客户地址:</label>
+                    <input type="text" class="form-control" id="CustomerAddress" placeholder="客户地址" name="CustomerAddress">
+                </div>
+
+                <h5>服务原因</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ServiceReason1" name="ServiceReason" value="安装调试">
+                    <label class="custom-control-label" for="ServiceReason1">安装调试</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ServiceReason2" name="ServiceReason" value="故障检查维修">
+                    <label class="custom-control-label" for="ServiceReason2">故障检查维修</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ServiceReason3" name="ServiceReason" value="日常回访">
+                    <label class="custom-control-label" for="ServiceReason3">日常回访</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ServiceReason4" name="ServiceReason" value="其他">
+                    <label class="custom-control-label" for="ServiceReason4">其他</label>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none" id="d2">
+            <div class="col">
+
+                <h5>问题类型</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType1" name="ProblemType" value="折弯问题">
+                    <label class="custom-control-label" for="ProblemType1">折弯问题</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType2" name="ProblemType" value="焊接问题">
+                    <label class="custom-control-label" for="ProblemType2">焊接问题</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType3" name="ProblemType" value="涂装问题">
+                    <label class="custom-control-label" for="ProblemType3">涂装问题</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType4" name="ProblemType" value="装配问题">
+                    <label class="custom-control-label" for="ProblemType4">装配问题</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType5" name="ProblemType" value="电装问题">
+                    <label class="custom-control-label" for="ProblemType5">电装问题</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType6" name="ProblemType" value="运输问题">
+                    <label class="custom-control-label" for="ProblemType6">运输问题</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType7" name="ProblemType" value="设计问题">
+                    <label class="custom-control-label" for="ProblemType7">设计问题</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType8" name="ProblemType" value="电气设计">
+                    <label class="custom-control-label" for="ProblemType8">电气设计</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType9" name="ProblemType" value="物资质量">
+                    <label class="custom-control-label" for="ProblemType9">物资质量</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="ProblemType10" name="ProblemType" value="其他方面">
+                    <label class="custom-control-label" for="ProblemType10">其他方面</label>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none" id="d3">
+            <div class="col">
+
+                <h5>是否是小巨人</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsXJR1" name="IsXJR" value="是">
+                    <label class="custom-control-label" for="IsXJR1">是</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsXJR2" name="IsXJR" value="否">
+                    <label class="custom-control-label" for="IsXJR2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="email">问题描述:</label>
+                    <textarea type="text" class="form-control" id="email" placeholder="问题描述" name="ProblemDescription"></textarea>
+                </div>
+                <div class="custom-file ">
+                    <div class="file-loading">
+                        <input id="input-fa" name="FileName" type="file" multiple>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="pwd">客户联系人:</label>
+                    <input type="text" class="form-control" id="CustomerContact" placeholder="客户联系人" name="CustomerContact">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">客户联系方式:</label>
+                    <input type="text" class="form-control" id="CustomerPhone" placeholder="客户联系方式" name="CustomerPhone">
+                </div>
+
+                <input name="UserID" type="hidden" value="@ViewBag.UserID" />
+                <input name="UserName" type="hidden" value="@ViewBag.UserName" />
+                @*<input id="MoID" name="MoID" type="hidden" value="" />*@
+
+                <button type="submit" class="btn btn-block btn-primary mt-3">提交</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+    $("#input-fa").fileinput({
+        theme: "fa"     
+    });
+
+
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: 'wxc15f96471ac8980b', // 必填，公众号的唯一标识
+        timestamp: @ViewBag.timestamp, // 必填，生成签名的时间戳
+        nonceStr: '@ViewBag.noncestr', // 必填，生成签名的随机串
+        signature: '@ViewBag.signture',// 必填，签名
+        jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表
+    });
+
+
+    $(document).ready(function () {
+
+        
+        wx.ready(function () {
+            $("#ScanBtn").click(function () {
+                wx.scanQRCode({
+                    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                    scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                    success: function (res) {
+                        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                        $("#LotSN").val(result);
+
+                        GetData(result);
+                    }
+                });
+            });
+        });
+
+
+        var isCustomer = '@ViewBag.IsCustomer';
+
+        if (isCustomer == 'Yes') {
+            $('#ServiceReason2').attr('checked', 'checked');
+            $('#ServiceReason1').attr('onClick','javascript:return false');
+            $('#ServiceReason2').attr('onClick','javascript:return false');
+            $('#ServiceReason3').attr('onClick','javascript:return false');
+            $('#ServiceReason4').attr('onClick', 'javascript:return false');
+
+            $('#IsXJR2').attr('checked', 'checked');
+        }
+        else {
+            //$('#ServiceReason2').attr('onClick', 'javascript:return false');
+
+            $('#d1').removeClass('d-none');
+            $('#d2').removeClass('d-none');
+            $('#d3').removeClass('d-none');
+
+            $('#IsXJR2').attr('checked', 'checked');
+        }
+
+
+        $("#ScanBtn2").click(function () {
+            var qrcode = $("#LotSN").val();
+
+            GetData(qrcode);
+        });
+
+        //dd.ready(function () {
+
+
+        //    // dd.ready参数为回调函数，在环境准备就绪时触发，jsapi的调用需要保证在该回调函数触发后调用，否则无效。
+        //    dd.runtime.permission.requestAuthCode({
+        //        corpId: "ding2c79175966a6abea35c2f4657eb6378f",
+        //        onSuccess: function (result) {
+        //            /*{
+        //                code: 'hYLK98jkf0m' //string authCode
+        //            }*/
+        //            //alert('dd.runtime.permission.requestAuthCode success:' + result.code);
+        //        },
+        //        onFail: function (err) {
+        //            alert('dd.runtime.permission.requestAuthCode error:' + JSON.stringify(err));
+        //        }
+
+        //    });
+
+        //    $("#ScanBtn").click(function () {
+
+        //        dd.biz.util.scan({
+        //            type: 'all', // type 为 all、qrCode、barCode，默认是all。
+        //            onSuccess: function (data) {
+        //                $("#LotSN").val(data.text);
+
+        //                GetData(data.text)
+        //                //alert(data.text);
+        //            },
+        //            onFail: function (err) {
+        //                alert("扫码失败");
+        //            }
+        //        })
+        //    })
+
+        //});
+    });
+
+    function GetData(qrcode) {
+        $.get('/api/Lot?LotSN=' + qrcode, function (ret) {
+
+            if (status == 'error') {
+                alert(ret);
+            }
+            var ret = JSON.parse(ret);
+            if (ret.success == true) {
+                $('#ProductName').val(ret.data.product.ProductDescription);
+                $('#ProductID').val(ret.data.pr.ProductName);
+                //$('#LotName').val(ret.data.lot.LotSN);
+                $('#MoID').val(ret.data.mo.MOName);
+                $('#CustomerName').val(ret.data.cus.CustomerShortName);
+                $('#CustomerAddress').val(ret.data.cus.CustomerAddress);
+                //$('#MoID').val(ret.data.mo.MOId);
+            }
+            else {
+                alert(ret.error);
+            }
+
+        })
+    }
+
+    function getQueryString(name) {
+    
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+</script>

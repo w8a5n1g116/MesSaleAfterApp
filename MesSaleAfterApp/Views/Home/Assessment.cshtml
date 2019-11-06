@@ -1,0 +1,160 @@
+﻿<div class="container-fluid">
+    <form action="~/Home/Assessment" method="post">
+        <div class="row">
+            <div class="col">
+
+                <h5>售后服务总体评价</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="VeryGood" name="SaleAfterAssessment" value="非常满意">
+                    <label class="custom-control-label" for="VeryGood">非常满意</label>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Good" name="SaleAfterAssessment" value="满意">
+                    <label class="custom-control-label" for="Good">满意</label>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Normal" name="SaleAfterAssessment" value="一般">
+                    <label class="custom-control-label" for="Normal">一般</label>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Bad" name="SaleAfterAssessment" value="较差">
+                    <label class="custom-control-label" for="Bad">较差</label>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none" id="OtherAssessment">
+            <div class="col">
+                <h5>服务人员每天是否按时到达现场</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsInTime_Yes" name="IsInTime" value="是">
+                    <label class="custom-control-label" for="IsInTime_Yes">是</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsInTime_No" name="IsInTime" value="否">
+                    <label class="custom-control-label" for="IsInTime_No">否</label>
+                </div>
+                <h5>服务人员态度及工作能力</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Excellent" name="WorkingAbility" value="优秀">
+                    <label class="custom-control-label" for="Excellent">优秀</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Fine" name="WorkingAbility" value="良好">
+                    <label class="custom-control-label" for="Fine">良好</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Commonly" name="WorkingAbility" value="一般">
+                    <label class="custom-control-label" for="Commonly">一般</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Poor" name="WorkingAbility" value="较差">
+                    <label class="custom-control-label" for="Poor">较差</label>
+                </div>
+                <h5>是否进行日常保养维护常识和要点培训</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Is_Train_Yes" name="Is_Train" value="是">
+                    <label class="custom-control-label" for="Is_Train_Yes">是</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="Is_Train_No" name="Is_Train" value="否">
+                    <label class="custom-control-label" for="Is_Train_No">否</label>
+                </div>
+                <h5>产品问题是否有效解决</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsDone_Yes" name="IsDone" value="完全解决，恢复正常">
+                    <label class="custom-control-label" for="IsDone_Yes">完全解决，恢复正常</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsDone_Little_Yes" name="IsDone" value="基本解决，不影响使用">
+                    <label class="custom-control-label" for="IsDone_Little_Yes">基本解决，不影响使用</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsDone_Little_No" name="IsDone" value="问题查明，未彻底解决">
+                    <label class="custom-control-label" for="IsDone_Little_No">问题查明，未彻底解决</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsDone_No" name="IsDone" value="问题未查明，也为解决">
+                    <label class="custom-control-label" for="IsDone_No">问题未查明，也为解决</label>
+                </div>
+                <h5>服务人员是否对现场同类产品进行排查</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsChek_Yes" name="IsChek" value="进行了排查和处理">
+                    <label class="custom-control-label" for="IsChek_Yes">进行了排查和处理</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsChek_Little_Yes" name="IsChek" value="进行了排查，问题未处理">
+                    <label class="custom-control-label" for="IsChek_Little_Yes">进行了排查，问题未处理</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="IsChek_No" name="IsChek" value="未进行排查">
+                    <label class="custom-control-label" for="IsChek_No">未进行排查</label>
+                </div>
+                <div class="form-group">
+                    <label for="email">您对我公司产品改进意见:</label>
+                    <textarea type="text" class="form-control" id="email" placeholder="您对我公司产品改进意见" name="Suggest"></textarea>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input name="MainID" type="hidden" value="@ViewBag.MainID" />
+                <button type="submit" class="btn btn-block btn-primary">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#IsInTime_Yes').attr('checked', 'checked');
+        $('#Excellent').attr('checked', 'checked');
+        $('#Is_Train_Yes').attr('checked', 'checked');
+        $('#IsDone_Yes').attr('checked', 'checked');
+        $('#IsChek_Yes').attr('checked', 'checked');
+        $('#IsChek_Yes').attr('checked', 'checked');
+
+        $('#Good').click(function () {
+            $('#OtherAssessment').removeClass('d-none');
+        })
+
+        $('#Normal').click(function () {
+            $('#OtherAssessment').removeClass('d-none');
+        })
+
+        $('#Bad').click(function () {
+            $('#OtherAssessment').removeClass('d-none');
+        })
+
+        $('#VeryGood').click(function () {
+            $('#OtherAssessment').addClass('d-none');
+            $('#IsInTime_Yes').attr('checked', 'checked');
+            $('#Excellent').attr('checked', 'checked');
+            $('#Is_Train_Yes').attr('checked', 'checked');
+            $('#IsDone_Yes').attr('checked', 'checked');
+            $('#IsChek_Yes').attr('checked', 'checked');
+            $('#IsChek_Yes').attr('checked', 'checked');
+        })
+    });
+</script>

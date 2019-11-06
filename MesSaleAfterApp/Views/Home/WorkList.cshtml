@@ -1,0 +1,19 @@
+﻿@using MesSaleAfterApp.Models.OrbitModel;
+@{ 
+    List<WXSaleAfterMain> mainList = ViewBag.MainList;
+}
+<div class="container-fluid">
+    <div class="jumbotron mt-2">
+        <h2>工作列表</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                @foreach (var main in mainList)
+                {
+                    <li class="list-group-item"><a href="/Home/WorkNote?MainID=@main.ID">@main.CustomerName - @main.ProductName</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

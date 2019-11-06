@@ -1,0 +1,28 @@
+﻿@using MesSaleAfterApp.Models.OrbitModel;
+@{ 
+    List<WXSaleAfterWorkNote> noteList = ViewBag.NoteList;
+    WXSaleAfterMain main1 = ViewBag.Main;
+}
+<div class="container-fluid">
+    <div class="jumbotron mt-2">
+        <h2>工作列表</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                @foreach (var main in noteList)
+                {
+                <li class="list-group-item">
+                    <ul class="list-group">
+                        <li class="list-group-item">顾客名称：@main1.CustomerName</li>
+                        <li class="list-group-item">工作内容：@main.WorkContent</li>
+                        <li class="list-group-item">同类产品排查:@main.SameProductCheck</li>
+                        <li class="list-group-item">竞争对手产品调查:@main.EnemyProductCheck</li>
+                        <li class="list-group-item">处理情况:@main.HandlingSituation</li>
+                    </ul>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

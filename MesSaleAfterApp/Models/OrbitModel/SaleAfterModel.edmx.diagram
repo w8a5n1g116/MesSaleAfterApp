@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="01343715eb8743819d7d8f08b374239f" Name="Diagram1" ZoomLevel="58">
+        <EntityTypeShape EntityType="OrBitMOMModel.SysUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrBitMOMModel.WXSaleAfterAssessment" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrBitMOMModel.WXSaleAfterMain" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrBitMOMModel.WXSaleAfterWorkNote" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrBitMOMModel.WXUSerBind" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrBitMOMModel.AfterWorkSchedule" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.Ter_Customer_Com_Records" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.Customer" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.Lot" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.MO" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.Product" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.ProductRoot" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.SO" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.FtpFile" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="OrBitMOMModel.Q_issue_Rec_ForCustomer" Width="1.5" PointX="14.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

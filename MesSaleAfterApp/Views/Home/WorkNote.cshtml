@@ -1,0 +1,79 @@
+﻿<div class="container-fluid">
+    <form action="~/Home/WorkNote" method="post" id="formId">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="email">工作内容:</label>
+                    <textarea type="text" class="form-control" id="email" placeholder="工作内容" name="WorkContent"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">同类产品排查:</label>
+                    <textarea type="text" class="form-control" id="email" placeholder="同类产品排查" name="SameProductCheck"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="email">竞争对手产品调查:</label>
+                    <textarea type="text" class="form-control" id="email" placeholder="竞争对手产品调查" name="EnemyProductCheck"></textarea>
+                </div>
+                <h5>处理情况</h5>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="HandlingSituation1" name="HandlingSituation" value="完成">
+                    <label class="custom-control-label" for="HandlingSituation1">完成</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="HandlingSituation2" name="HandlingSituation" value="暂时恢复">
+                    <label class="custom-control-label" for="HandlingSituation2">暂时恢复</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="radio" class="custom-control-input" id="HandlingSituation3" name="HandlingSituation" value="等待备件">
+                    <label class="custom-control-label" for="HandlingSituation3">等待备件</label>
+                </div>
+                <input name="MainID" type="hidden" value="@ViewBag.MainID" />
+                <input name="IsDone" type="hidden" value="否" id="isdone" />
+                <button type="button" class="btn btn-block btn-primary" id="NoteBtn">记录</button>
+                <button type="button" class="btn btn-block btn-success" id="DoneBtn">结案</button>
+                @*<a href="~/Home/QRCode?MainID=@ViewBag.MainID" class="btn btn-block btn-info">显示评价二维码</a>*@
+                <a href="~/Home/NoteList?MainID=@ViewBag.MainID" class="btn btn-block btn-info">记录查询</a>
+
+            </div>
+        </div>
+    </form>
+    @*<form action="~/Home/WorkNote" method="post">
+        <div class="row mt-2">
+            <div class="col">
+                
+                
+
+                
+
+            </div>
+        </div>
+    </form>*@
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#ScanBtn2").click(function () {
+            var qrcode = $("#LotSN").val();
+
+            GetData(qrcode);
+        });
+
+        $("#DoneBtn").click(function () {
+
+            $('#isdone').val('是');
+
+            $('#formId').submit();
+        });
+
+        $("#NoteBtn").click(function () {
+
+            $('#isdone').val('否');
+
+            $('#formId').submit();
+        });
+       
+    });
+    
+</script>
