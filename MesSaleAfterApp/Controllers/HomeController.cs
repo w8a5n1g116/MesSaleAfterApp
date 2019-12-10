@@ -153,9 +153,9 @@ namespace MesSaleAfterApp.Controllers
 
             string url = null;
             if(string.IsNullOrEmpty(UserID))
-                url = "http://1e556377q9.imwork.net/Home/Index" + "?code=" + code + "&state=" + state;
+                url = "http://kocel.stopno.net/Home/Index" + "?code=" + code + "&state=" + state;
             else
-                url = "http://1e556377q9.imwork.net/Home/Index?UserID=" + UserID + "&UserName=" + UserName + "&IsCustomer=No";
+                url = "http://kocel.stopno.net/Home/Index?UserID=" + UserID + "&UserName=" + UserName + "&IsCustomer=No";
             string signture = JSAPI.GetSignature(jsapt_ticket.ticket, noncestr, timestamp, url, out retstring);
 
             ViewBag.timestamp = timestamp;
@@ -396,7 +396,7 @@ namespace MesSaleAfterApp.Controllers
             string noncestr = "nostop";
             string retstring = null;
 
-            string url = "http://1e556377q9.imwork.net/Home/GetPDF" + "?code=" + code + "&state=" + state;
+            string url = "http://kocel.stopno.net/Home/GetPDF" + "?code=" + code + "&state=" + state;
 
             string signture = JSAPI.GetSignature(jsapt_ticket.ticket, noncestr, timestamp, url, out retstring);
 
@@ -538,28 +538,46 @@ namespace MesSaleAfterApp.Controllers
         [HttpPost]
         public ActionResult Assessment(WXSaleAfterAssessment assessment)
         {
-            assessment.AssessmentDate = DateTime.Now;
-            entity.WXSaleAfterAssessment.Add(assessment);
+            WXSaleAfterAssessment _assessment = entity.WXSaleAfterAssessment.Where(p => p.MainID == assessment.MainID).FirstOrDefault();
 
-            entity.SaveChanges();
+            if(_assessment == null)
+            {          
+                assessment.AssessmentDate = DateTime.Now;
+                entity.WXSaleAfterAssessment.Add(assessment);
 
-            WXSaleAfterMain main = entity.WXSaleAfterMain.Where(p => p.ID == assessment.MainID).FirstOrDefault();
+                entity.SaveChanges();
 
-            main.IsFinish = "是";
+                WXSaleAfterMain main = entity.WXSaleAfterMain.Where(p => p.ID == assessment.MainID).FirstOrDefault();
 
-            //MO mo = entity.MO.Where(p => p.MOId == main.MoID).FirstOrDefault();
+                main.IsFinish = "是";
 
-            Ter_Customer_Com_Records tccr = entity.Ter_Customer_Com_Records.Where(p => p.MOName == main.MoID).FirstOrDefault();
+                //MO mo = entity.MO.Where(p => p.MOId == main.MoID).FirstOrDefault();
 
-            AfterWorkSchedule aws = entity.AfterWorkSchedule.Where(p => p.Ter_Customer_Com_RecordId == tccr.Ter_Customer_Com_RecordsId).FirstOrDefault();
+                
 
-            aws.AfterSalesEvaluation = assessment.SaleAfterAssessment;
+                Ter_Customer_Com_Records tccr = entity.Ter_Customer_Com_Records.Where(p => p.MOName == main.MoID).FirstOrDefault();
 
-            entity.SaveChanges();
+                if (tccr == null)
+                {
+                    ViewBag.Content = "工单号对应的售后单不存在！";
+                    return View("Error");
+                }
 
-            ViewBag.Content = "已完成评价！";
+                AfterWorkSchedule aws = entity.AfterWorkSchedule.Where(p => p.Ter_Customer_Com_RecordId == tccr.Ter_Customer_Com_RecordsId).FirstOrDefault();
 
-            return View("Done");
+                aws.AfterSalesEvaluation = assessment.SaleAfterAssessment;
+
+                entity.SaveChanges();
+
+                ViewBag.Content = "已完成评价！";
+                return View("Done");
+            }
+            else
+            {
+                ViewBag.Content = "已进行过评价！";
+                return View("Error");
+            }
+            
         }
 
         public ActionResult AssessmentCount(string yearMonth)
