@@ -22,7 +22,10 @@ namespace MesSaleAfterApp.Controllers
 
             if (mo != null || lot != null)
             {
-                //MO mo = entity.MO.Where(p => p.MOId == lot.MOId).FirstOrDefault();
+                if(lot != null)
+                {
+                    mo = entity.MO.Where(p => p.MOId == lot.MOId).FirstOrDefault();
+                }
 
                 Product product = entity.Product.Where(p => p.ProductId == mo.ProductId).FirstOrDefault();
 

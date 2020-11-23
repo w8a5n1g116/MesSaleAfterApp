@@ -111,9 +111,16 @@ namespace MesSaleAfterApp.Controllers
                     return View("Error");
                 }
 
+                List<WXSaleAfterMain> mainList = new List<WXSaleAfterMain>();
 
-
-                List<WXSaleAfterMain> mainList = entity.WXSaleAfterMain.Where(p => p.UserID == user.UserId && p.IsFinish != "是").ToList();
+                if(user.UserId == "SUR1000007HM")
+                {
+                    mainList = entity.WXSaleAfterMain.Where(p => p.IsFinish != "是").ToList();
+                }
+                else
+                {
+                    mainList = entity.WXSaleAfterMain.Where(p => p.UserID == user.UserId && p.IsFinish != "是").ToList();
+                }
 
                 ViewBag.MainList = mainList;
             }
@@ -560,7 +567,7 @@ namespace MesSaleAfterApp.Controllers
                 if (tccr == null)
                 {
                     ViewBag.Content = "工单号对应的售后单不存在！";
-                    return View("Error");
+                    return View("Done");
                 }
 
                 AfterWorkSchedule aws = entity.AfterWorkSchedule.Where(p => p.Ter_Customer_Com_RecordId == tccr.Ter_Customer_Com_RecordsId).FirstOrDefault();
@@ -574,25 +581,32 @@ namespace MesSaleAfterApp.Controllers
             }
             else
             {
+                WXSaleAfterMain main = entity.WXSaleAfterMain.Where(p => p.ID == _assessment.MainID).FirstOrDefault();
+
+                main.IsFinish = "是";
+
+                entity.SaveChanges();
+
+
                 ViewBag.Content = "已进行过评价！";
-                return View("Error");
+                return View("Done");
             }
             
         }
 
         public ActionResult AssessmentCount(string yearMonth)
         {
-            string code = Request.QueryString["code"];
+            //string code = Request.QueryString["code"];
 
-            wx_backdata<wx_oauth2token> oauth2token = wcc.GetOauth2AccessToken(code);
+            //wx_backdata<wx_oauth2token> oauth2token = wcc.GetOauth2AccessToken(code);
 
-            WXUSerBind wxuser = entity.WXUSerBind.Where(p => p.OpenID == oauth2token.ResponseData.openid).FirstOrDefault();
+            //WXUSerBind wxuser = entity.WXUSerBind.Where(p => p.OpenID == oauth2token.ResponseData.openid).FirstOrDefault();
 
-            if (wxuser == null || (wxuser != null && wxuser.UserID != "SUR1000007BQ" && wxuser.UserID != "SUR1000007HM"))
-            {
-                ViewBag.Content = "您无权查看此内容！";
-                return View("Error");
-            }
+            //if (wxuser == null || (wxuser != null && wxuser.UserID != "SUR1000007BQ" && wxuser.UserID != "SUR1000007HM" && wxuser.UserID != "SUR1000003KX"))
+            //{
+            //    ViewBag.Content = "您无权查看此内容！";
+            //    return View("Done");
+            //}
 
             int year = 0;
             int month = 0;
